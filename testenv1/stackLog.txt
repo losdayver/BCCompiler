@@ -1,0 +1,26 @@
+Stack info:
+Element #1: 23
+Element #2: 42
+Element #3: 18
+
+Stack info:
+Element #1: 23
+Element #2: 42
+Element #3: 18
+
+Stack info:
+Element #1: 23
+Element #2: 42
+
+Stack info:
+Element #1: 23
+Element #2: 42
+
+Stack info:
+Element #1: 23
+Element #2: 42
+
+Stack info:
+Element #1: 23
+Element #2: 42
+

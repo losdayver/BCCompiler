@@ -19,4 +19,32 @@
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="structures.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="memory_manager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="logger.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="libraries.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dequeueLog.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="memManagerLog.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="queueLog.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+    <Text Include="stackLog.txt">
+      <Filter>Файлы ресурсов</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

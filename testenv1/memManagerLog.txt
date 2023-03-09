@@ -1,0 +1,21 @@
+allocated 4 bytes for int log time: 2023-03-09 16:30:13.470
+allocated 4 bytes for int log time: 2023-03-09 16:30:13.472
+allocated 4 bytes for int log time: 2023-03-09 16:30:13.472
+removed block of 4 size log time: 2023-03-09 16:30:13.472
+block #0 0000016CA6DF1150 with size 4
+block #1 0000016CA6DF1154 with size 4
+allocated 8 bytes for double log time: 2023-03-09 16:30:13.474
+allocated 8 bytes for double log time: 2023-03-09 16:30:13.474
+allocated 8 bytes for double log time: 2023-03-09 16:30:13.474
+removed block of 8 size log time: 2023-03-09 16:30:13.475
+block #0 0000016CA6DF14D8 with size 8
+block #1 0000016CA6DF14E0 with size 8
+allocated 8 bytes for char const * __ptr64 log time: 2023-03-09 16:30:13.476
+allocated 8 bytes for char const * __ptr64 log time: 2023-03-09 16:30:13.477
+allocated 8 bytes for char const * __ptr64 log time: 2023-03-09 16:30:13.477
+block #0 0000016CA6DF5A10 with size 8
+block #1 0000016CA6DF5A18 with size 8
+block #2 0000016CA6DF5A20 with size 8
+removed block of 8 size log time: 2023-03-09 16:30:13.478
+removed block of 8 size log time: 2023-03-09 16:30:13.479
+removed block of 8 size log time: 2023-03-09 16:30:13.479

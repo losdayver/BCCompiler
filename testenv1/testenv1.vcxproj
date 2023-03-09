@@ -131,6 +131,18 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="libraries.h" />
+    <ClInclude Include="logger.h" />
+    <ClInclude Include="memory_manager.h" />
+    <ClInclude Include="structures.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="dequeueLog.txt" />
+    <Text Include="memManagerLog.txt" />
+    <Text Include="queueLog.txt" />
+    <Text Include="stackLog.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,0 +1,12 @@
+#pragma once
+#include <iostream>
+#include <cstring>
+#include <cstdlib>
+#include <vector>
+#include <fstream>
+#include <chrono>
+#include <ctime>
+#include <string>
+#include <format>
+#include <typeinfo>
+#include <list>
