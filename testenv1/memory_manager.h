@@ -4,13 +4,23 @@
 
 using namespace std;
 
+struct MemoryBlock {
+    bool isUsed;
+    void* ptr;
+    int size;
+
+    MemoryBlock() {
+        isUsed = false;
+        ptr = nullptr;
+        size = 0;
+    }
+};
+
 class MemoryManager {
 private:
     void* ptr;
     int size;
-    vector<void*> blocks;
-    vector<void*> vars;
-    vector<int> blocksSizes;
+    vector<MemoryBlock> blocks;
     int shift = 0;
     int memoryAvailable;
     Logger logger;
@@ -20,27 +30,34 @@ public:
         size = numBytes;
         memoryAvailable = size;
         ptr = malloc(numBytes);
+        logger.LogTime("Created a memory block of " + to_string(size) + " bytes size");
     }
 
     ~MemoryManager() {
         free(ptr);
+        logger.LogTime("Removed a memory block of " + to_string(size) + " bytes size\n\n");
     }
 
     void Info()
     {
-        for (int i = 0; i < blocksSizes.size(); i++)
+        for (int i = 0; i < blocks.size(); i++)
         {
-            const void* address = static_cast<const void*>(blocks[i]);
-            stringstream ss;
-            ss << address;
-            string stringAddress = ss.str();
-            logger.Log("block #" + to_string(i) + ' ' + stringAddress + ' ' + "with size " + to_string(blocksSizes[i]) + '\n');
+            if (blocks[i].isUsed) {
+                const void* address = static_cast<const void*>(blocks[i].ptr);
+                stringstream ss;
+                ss << address;
+                string stringAddress = ss.str();
+                logger.Log("block #" + to_string(i) + ' ' + stringAddress + ' ' + "with size " + to_string(blocks[i].size) + '\n');
+            }  
         }
     }
 
     template<typename T>
-    bool Allocate(T* var, T value) {
+    int Allocate(T value) {
+
         int valueSize = sizeof(value);
+
+        // если в "правой" части блока памяти нет, но в целом памяти хватает, то проводим дефрагментацию
         if ((size - shift < valueSize) && (memoryAvailable >= valueSize)) {
             Defragment();
         }
@@ -50,16 +67,21 @@ public:
             shift += valueSize;
             memoryAvailable -= valueSize;
             *(T*)newPtr = value;
-            blocks.push_back(newPtr);
-            blocksSizes.push_back(valueSize);
-            vars.push_back(var);
+
+            MemoryBlock newBlock;
+            newBlock.ptr = newPtr;
+            newBlock.isUsed = true;
+            newBlock.size = valueSize;
+
+            blocks.push_back(newBlock);
 
             string logMsg = "allocated " + to_string(valueSize)
                 + " bytes for "
                 + typeid(value).name();
+
             logger.LogTime(logMsg);
-            *var =  *(T*)blocks.back();
-            return true;
+   
+            return blocks.size()-1;  // возвращаем индекс блока в векторе
         }
         else {
             string logMsg = "error occured allocating "
@@ -67,35 +89,45 @@ public:
                 + typeid(value).name();
             logger.LogTime(logMsg);
 
-            return false;
+            return -1;
         }
     }
 
-    bool Remove(void* pointer) {
-        for (int i = 0; i < vars.size(); i++) {
-            if (pointer == vars[i]) {
-                pointer = NULL;
-                blocks.erase(blocks.begin() + i);
-                vars.erase(vars.begin() + i);
-                memoryAvailable += blocksSizes[i];
-                int rm_size = blocksSizes[i];
-                blocksSizes.erase(blocksSizes.begin() + i);
-                string logMsg = "removed block of " + to_string(rm_size) + " size";
-                logger.LogTime(logMsg);
-                return true;
-            }
+    bool Remove(int index) {
+        if (index >= 0 && index < blocks.size()) {
+            blocks[index].isUsed = false;
+            logger.LogTime("removed block of " + to_string(blocks[index].size) + " size");
+            memoryAvailable += blocks[index].size;
+            return true;
         }
-        return false;
+        else {
+            logger.LogTime("couldn't find block to delete");
+            return false;
+        }
     }
 
     void Defragment() {
         int sortedSize = 0;
         for (int i = 0; i < blocks.size(); i++) {
-            memcpy(static_cast<char*>(ptr) + sortedSize, blocks[i], blocksSizes[i]);
-            blocks[i] = static_cast<char*>(ptr) + sortedSize;
-            sortedSize += blocksSizes[i];
+            if (blocks[i].isUsed) {
+                memcpy(static_cast<char*>(ptr) + sortedSize, blocks[i].ptr, blocks[i].size);
+                blocks[i].ptr = static_cast<char*>(ptr) + sortedSize;
+                sortedSize += blocks[i].size;
+            } 
         }
         shift = sortedSize;
         logger.LogTime("Memory block was defragmented");
+    }
+
+    template<typename T>
+    T Get(int index) {
+        if (index >= 0 && index < blocks.size()) {
+            if (blocks[index].isUsed) {
+                return *(T*)blocks[index].ptr;
+            }
+        }
+        
+        logger.LogTime("Couldn't find memory block!");
+        return NULL;
     }
 };

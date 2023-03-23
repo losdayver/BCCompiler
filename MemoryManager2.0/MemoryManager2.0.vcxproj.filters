@@ -15,21 +15,35 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClInclude Include="..\testenv1\libraries.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\testenv1\logger.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\testenv1\memory_manager.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\testenv1\structures.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\testenv1\main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="dequeueLog.txt">
+    <Text Include="memManagerLog.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="memManagerLog.txt">
+    <Text Include="stackLog.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
     <Text Include="queueLog.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
-    <Text Include="stackLog.txt">
+    <Text Include="dequeueLog.txt">
       <Filter>Файлы ресурсов</Filter>
     </Text>
   </ItemGroup>

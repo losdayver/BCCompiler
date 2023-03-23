@@ -35,19 +35,18 @@ public:
     void LogTime(string message)
     {
         // Get the current time
-        auto now = std::chrono::system_clock::now();
-        auto ms = std::chrono::duration_cast<std::chrono::milliseconds>(now.time_since_epoch()) % 1000;
-        std::time_t time_now = std::chrono::system_clock::to_time_t(now);
+        auto now = chrono::system_clock::now();
+        auto ms = chrono::duration_cast<chrono::milliseconds>(now.time_since_epoch()) % 1000;
+        time_t time_now = chrono::system_clock::to_time_t(now);
 
         // Format the time as a string
-        std::stringstream ss;
+        stringstream ss;
 #pragma warning(suppress : 4996)
-        ss << std::put_time(std::localtime(&time_now), "%Y-%m-%d %H:%M:%S.");
-        ss << std::setfill('0') << std::setw(3) << ms.count();
-        std::string str_time = ss.str();
+        ss << put_time(localtime(&time_now), "%Y-%m-%d %H:%M:%S.");
+        ss << setfill('0') << setw(3) << ms.count();
+        string str_time = ss.str();
 
-        string timeString = "log time: " + str_time;
-        string resultMessage = message + " " + timeString + "\n";
+        string resultMessage = str_time + "    " + message + "\n";
 
         Log(resultMessage);
     }

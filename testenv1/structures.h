@@ -8,27 +8,31 @@ using namespace std;
 template<typename T>
 class stack {
 	list<T> elements;
-	MemoryManager mm;
+	list<int> indexes;
 	Logger logger;
 
 public:
-	stack(int bytes): mm(bytes), logger(true, 1, "stackLog.txt") {
+	stack(): logger(true, 1, "stackLog.txt") {
 		elements = {};
+		indexes = {};
 	}
 
-	void push(T element) {
-		elements.push_back(T());
-		if (!mm.Allocate(&elements.back(), element)) {
-			elements.pop_back();
+	void push(MemoryManager& mm, T element) {
+		int index = mm.Allocate<T>(element);
+		if (index >= 0) {
+			elements.push_front(element);
+			indexes.push_front(index);
 		}
 	}
 
-	void pop() {
+	void pop(MemoryManager& mm) {
 		if (elements.size() == 0) {
 			return;
 		}
-		if (mm.Remove(&elements.back())) {
-			elements.pop_back();
+		bool isRemoved = mm.Remove(indexes.front());
+		if (isRemoved) {
+			elements.pop_front();
+			indexes.pop_front();
 		}	
 	}
 
@@ -44,34 +48,37 @@ public:
 		}
 		message += "\n";
 		logger.Log(message);
-		mm.Info();
 	}
 };
 
 template<typename T>
 class queue {
 	list<T> elements;
-	MemoryManager mm;
+	list<int> indexes;
 	Logger logger;
 
 public:
-	queue(int bytes): mm(bytes), logger(true, 1, "queueLog.txt") {
+	queue(): logger(true, 1, "queueLog.txt") {
 		elements = {};
+		indexes = {};
 	}
 
-	void push(T element) {
-		elements.push_back(T());
-		if (!mm.Allocate(&elements.back(), element)) {
-			elements.pop_back();
+	void push(MemoryManager& mm, T element) {
+		int index = mm.Allocate<T>(element);
+		if (index >= 0) {
+			elements.push_back(element);
+			indexes.push_back(index);
 		}
 	}
 
-	void pop() {
+	void pop(MemoryManager& mm) {
 		if (elements.size() == 0) {
 			return;
 		}
-		if (mm.Remove(&elements.front())) {
+		bool isRemoved = mm.Remove(indexes.front());
+		if (isRemoved) {
 			elements.pop_front();
+			indexes.pop_front();
 		}
 	}
 
@@ -87,50 +94,56 @@ public:
 		}
 		message += "\n";
 		logger.Log(message);
-		mm.Info();
 	}
 };
 
 template<typename T>
 class dequeue {
 	list<T> elements;
-	MemoryManager mm;
+	list<int> indexes;
 	Logger logger;
 
 public:
-	dequeue(int bytes): mm(bytes), logger(true, 1, "dequeueLog.txt") {
+	dequeue(): logger(true, 1, "dequeueLog.txt") {
 		elements = {};
+		indexes = {};
 	}
 
-	void push_back(T element) {
-		elements.push_back(T());
-		if (!mm.Allocate(&elements.back(), element)) {
-			elements.pop_back();
+	void push_back(MemoryManager& mm, T element) {
+		int index = mm.Allocate<T>(element);
+		if (index >= 0) {
+			elements.push_back(element);
+			indexes.push_back(index);
 		}
 	}
 
-	void push_front(T element) {
-		elements.push_front(T());
-		if (!mm.Allocate(&elements.front(), element)) {
-			elements.pop_front();
+	void push_front(MemoryManager &mm, T element) {
+		int index = mm.Allocate<T>(element);
+		if (index >= 0) {
+			elements.push_front(element);
+			indexes.push_front(index);
 		}
 	}
 
-	void pop_back() {
+	void pop_back(MemoryManager& mm) {
 		if (elements.size() == 0) {
 			return;
 		}
-		if (mm.Remove(&elements.back())) {
+		bool isRemoved = mm.Remove(indexes.back());
+		if (isRemoved) {
 			elements.pop_back();
+			indexes.pop_back();
 		}
 	}
 
-	void pop_front() {
+	void pop_front(MemoryManager& mm) {
 		if (elements.size() == 0) {
 			return;
 		}
-		if (mm.Remove(&elements.front())) {
+		bool isRemoved = mm.Remove(indexes.front());
+		if (isRemoved) {
 			elements.pop_front();
+			indexes.pop_front();
 		}
 	}
 
@@ -146,6 +159,5 @@ public:
 		}
 		message += "\n";
 		logger.Log(message);
-		mm.Info();
 	}
 };

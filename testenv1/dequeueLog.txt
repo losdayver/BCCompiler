@@ -41,3 +41,10 @@ Element #3: 3
 
 Dequeue info:
 
+Dequeue info:
+Element #1: 2
+Element #2: 1
+Element #3: 3
+
+Dequeue info:
+

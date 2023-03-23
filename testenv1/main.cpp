@@ -1,47 +1,90 @@
 ﻿#include <iostream>
 #include "structures.h"
+#include "memory_manager.h"
 
 using namespace std;
 
+// Показ работы MemoryManager
+void Demo1() {
+    MemoryManager mm(13);
 
-int main() {
-    stack<int> Stack(100);
+    int a = mm.Allocate<int>(100);
+    int b = mm.Allocate<int>(200);
+    int c = mm.Allocate<int>(300);
+    int d = mm.Allocate<int>(400);
 
-    Stack.push(23);
-    Stack.push(42);
-    Stack.push(18);
-  
-    Stack.pop();
+    mm.Info();
+
+    bool isRemoved = mm.Remove(a);
+
+    mm.Info();
+
+    d = mm.Allocate<int>(400);
+
+    mm.Info();
+
+    cout << mm.Get<int>(b) << " " << mm.Get<int>(c) << " " << mm.Get<int>(d) << endl;
+
+}
+
+// Пока работы структур данных
+void Demo2() {
+
+    MemoryManager mm(35);
+
+    stack<int> Stack;
+
+    Stack.push(mm, 23);
+    Stack.push(mm, 42);
+    Stack.push(mm, 18);
+
+    Stack.pop(mm);
 
     Stack.info();
 
 
-    queue<double> Queue(100);
+    queue<const char*> Queue;
 
-    Queue.push(12.1);
-    Queue.push(14.123);
-    Queue.push(0);
+    Queue.push(mm, "lalalaa");
+    Queue.push(mm, "pplplpl");
 
-    Queue.pop();
+    mm.Info();
+    Queue.push(mm, "kkkkkkk");
+    mm.Info();
+
+    Queue.pop(mm);
 
     Queue.info();
 
 
-    dequeue<const char*> Dequeue(200); 
+    dequeue<double> Dequeue;
 
-    Dequeue.push_front("1");
-    Dequeue.push_front("2");
-    Dequeue.push_back("3");
+    mm.Info();
+
+    Dequeue.push_front(mm, 1.25);
+
+    mm.Info();
+    Dequeue.push_front(mm, 3.23);
+    Dequeue.push_back(mm, 4.32);
+
+    Dequeue.info();
+
+    Dequeue.pop_front(mm);
+    Dequeue.pop_back(mm);
+    Dequeue.pop_back(mm);
+    Dequeue.pop_front(mm);
 
     Dequeue.info();
 
-    Dequeue.pop_front();
-    Dequeue.pop_back();
-    Dequeue.pop_back();
-    Dequeue.pop_front();
 
-    Dequeue.info();
+    mm.Info();
    
+}
+
+
+int main() {
+      
+    Demo2();
 
     return 0;
 }
