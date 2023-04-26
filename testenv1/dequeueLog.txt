@@ -48,3 +48,18 @@ Element #3: 3
 
 Dequeue info:
 
+Dequeue info:
+Element #1: 1.25
+
+Dequeue info:
+
+Dequeue info:
+Element #1: 1.25
+
+Dequeue info:
+
+Dequeue info:
+Element #1: 1.25
+
+Dequeue info:
+

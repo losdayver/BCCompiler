@@ -100,3 +100,229 @@ block #5 0000021D59595840 with size 8
 2023-03-23 14:33:36.503    Removed a memory block of 35 bytes size
 
 
+2023-03-24 15:41:32.021    Created a memory block of 35 bytes size
+2023-03-24 15:41:32.028    allocated 4 bytes for int
+2023-03-24 15:41:32.029    allocated 4 bytes for int
+2023-03-24 15:41:32.029    allocated 4 bytes for int
+2023-03-24 15:41:32.029    removed block of 4 size
+2023-03-24 15:41:32.030    allocated 8 bytes for char const * __ptr64
+2023-03-24 15:41:32.030    allocated 8 bytes for char const * __ptr64
+block #0 000002248CB95310 with size 4
+block #1 000002248CB95314 with size 4
+block #3 000002248CB9531C with size 8
+block #4 000002248CB95324 with size 8
+2023-03-24 15:41:32.032    Memory block was defragmented
+2023-03-24 15:41:32.032    allocated 8 bytes for char const * __ptr64
+block #0 000002248CB95310 with size 4
+block #1 000002248CB95314 with size 4
+block #3 000002248CB95318 with size 8
+block #4 000002248CB95320 with size 8
+block #5 000002248CB95328 with size 8
+2023-03-24 15:41:32.034    removed block of 8 size
+block #0 000002248CB95310 with size 4
+block #1 000002248CB95314 with size 4
+block #4 000002248CB95320 with size 8
+block #5 000002248CB95328 with size 8
+2023-03-24 15:41:32.035    Memory block was defragmented
+2023-03-24 15:41:32.035    allocated 8 bytes for double
+block #0 000002248CB95310 with size 4
+block #1 000002248CB95314 with size 4
+block #4 000002248CB95318 with size 8
+block #5 000002248CB95320 with size 8
+block #6 000002248CB95328 with size 8
+2023-03-24 15:41:32.037    error occured allocating 8 bytes for double
+2023-03-24 15:41:32.037    error occured allocating 8 bytes for double
+2023-03-24 15:41:32.040    removed block of 8 size
+block #0 000002248CB95310 with size 4
+block #1 000002248CB95314 with size 4
+block #4 000002248CB95318 with size 8
+block #5 000002248CB95320 with size 8
+2023-03-24 15:41:32.043    Removed a memory block of 35 bytes size
+
+
+2023-03-24 15:51:39.794    Created a memory block of 35 bytes size
+2023-03-24 15:51:39.797    allocated 4 bytes for int
+2023-03-24 15:51:39.798    allocated 4 bytes for int
+2023-03-24 15:51:39.799    allocated 4 bytes for int
+2023-03-24 15:51:39.800    removed block of 4 size
+2023-03-24 15:51:39.801    allocated 8 bytes for char const * __ptr64
+2023-03-24 15:51:39.801    allocated 8 bytes for char const * __ptr64
+block #0 00000208B9ABE110 with size 4
+block #1 00000208B9ABE114 with size 4
+block #3 00000208B9ABE11C with size 8
+block #4 00000208B9ABE124 with size 8
+2023-03-24 15:51:39.803    Memory block was defragmented
+2023-03-24 15:51:39.803    allocated 8 bytes for char const * __ptr64
+block #0 00000208B9ABE110 with size 4
+block #1 00000208B9ABE114 with size 4
+block #3 00000208B9ABE118 with size 8
+block #4 00000208B9ABE120 with size 8
+block #5 00000208B9ABE128 with size 8
+2023-03-24 15:51:39.805    removed block of 8 size
+block #0 00000208B9ABE110 with size 4
+block #1 00000208B9ABE114 with size 4
+block #4 00000208B9ABE120 with size 8
+block #5 00000208B9ABE128 with size 8
+2023-03-24 15:51:39.818    Memory block was defragmented
+2023-03-24 15:51:39.819    allocated 8 bytes for double
+block #0 00000208B9ABE110 with size 4
+block #1 00000208B9ABE114 with size 4
+block #4 00000208B9ABE118 with size 8
+block #5 00000208B9ABE120 with size 8
+block #6 00000208B9ABE128 with size 8
+2023-03-24 15:51:39.823    error occured allocating 8 bytes for double
+2023-03-24 15:51:39.823    error occured allocating 8 bytes for double
+2023-03-24 15:51:39.824    removed block of 8 size
+block #0 00000208B9ABE110 with size 4
+block #1 00000208B9ABE114 with size 4
+block #4 00000208B9ABE118 with size 8
+block #5 00000208B9ABE120 with size 8
+2023-03-24 15:51:39.830    Removed a memory block of 35 bytes size
+
+
+2023-03-24 15:52:18.863    Created a memory block of 100 bytes size
+2023-03-24 15:52:18.867    allocated 4 bytes for int
+2023-03-24 15:52:18.867    allocated 4 bytes for int
+2023-03-24 15:52:18.867    allocated 4 bytes for int
+2023-03-24 15:52:18.868    removed block of 4 size
+2023-03-24 15:52:18.869    allocated 8 bytes for char const * __ptr64
+2023-03-24 15:52:18.869    allocated 8 bytes for char const * __ptr64
+block #0 000001F71D81EE70 with size 4
+block #1 000001F71D81EE74 with size 4
+block #3 000001F71D81EE7C with size 8
+block #4 000001F71D81EE84 with size 8
+2023-03-24 15:52:18.870    allocated 8 bytes for char const * __ptr64
+block #0 000001F71D81EE70 with size 4
+block #1 000001F71D81EE74 with size 4
+block #3 000001F71D81EE7C with size 8
+block #4 000001F71D81EE84 with size 8
+block #5 000001F71D81EE8C with size 8
+2023-03-24 15:52:18.872    removed block of 8 size
+block #0 000001F71D81EE70 with size 4
+block #1 000001F71D81EE74 with size 4
+block #4 000001F71D81EE84 with size 8
+block #5 000001F71D81EE8C with size 8
+2023-03-24 15:52:18.874    allocated 8 bytes for double
+block #0 000001F71D81EE70 with size 4
+block #1 000001F71D81EE74 with size 4
+block #4 000001F71D81EE84 with size 8
+block #5 000001F71D81EE8C with size 8
+block #6 000001F71D81EE94 with size 8
+2023-03-24 15:52:18.876    allocated 8 bytes for double
+2023-03-24 15:52:18.876    allocated 8 bytes for double
+2023-03-24 15:52:18.878    removed block of 8 size
+2023-03-24 15:52:18.878    removed block of 8 size
+2023-03-24 15:52:18.878    removed block of 8 size
+block #0 000001F71D81EE70 with size 4
+block #1 000001F71D81EE74 with size 4
+block #4 000001F71D81EE84 with size 8
+block #5 000001F71D81EE8C with size 8
+2023-03-24 15:52:18.880    Removed a memory block of 100 bytes size
+
+
+2023-03-24 16:00:36.308    Created a memory block of 100 bytes size
+2023-03-24 16:00:36.310    allocated 4 bytes for int
+2023-03-24 16:00:36.311    allocated 4 bytes for int
+2023-03-24 16:00:36.311    allocated 4 bytes for int
+2023-03-24 16:00:36.311    removed block of 4 size
+2023-03-24 16:00:36.312    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:00:36.313    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:00:36.313    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:00:36.313    removed block of 8 size
+block #0 0000019A9B7D59B0 with size 4
+block #1 0000019A9B7D59B4 with size 4
+block #4 0000019A9B7D59C4 with size 8
+block #5 0000019A9B7D59CC with size 8
+2023-03-24 16:00:36.315    allocated 8 bytes for double
+block #0 0000019A9B7D59B0 with size 4
+block #1 0000019A9B7D59B4 with size 4
+block #4 0000019A9B7D59C4 with size 8
+block #5 0000019A9B7D59CC with size 8
+block #6 0000019A9B7D59D4 with size 8
+2023-03-24 16:00:36.317    allocated 8 bytes for double
+2023-03-24 16:00:36.317    allocated 8 bytes for double
+2023-03-24 16:00:36.318    removed block of 8 size
+2023-03-24 16:00:36.318    removed block of 8 size
+2023-03-24 16:00:36.319    removed block of 8 size
+block #0 0000019A9B7D59B0 with size 4
+block #1 0000019A9B7D59B4 with size 4
+block #4 0000019A9B7D59C4 with size 8
+block #5 0000019A9B7D59CC with size 8
+2023-03-24 16:00:36.320    Removed a memory block of 100 bytes size
+
+
+2023-03-24 16:09:49.204    Created a memory block of 100 bytes size
+2023-03-24 16:09:49.207    allocated 4 bytes for int
+2023-03-24 16:09:49.207    allocated 4 bytes for int
+2023-03-24 16:09:49.207    allocated 4 bytes for int
+2023-03-24 16:09:49.208    removed block of 4 size
+2023-03-24 16:09:49.208    Couldn't find memory block!
+2023-03-24 16:09:49.210    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:09:49.210    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:09:49.210    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:09:49.211    removed block of 8 size
+2023-03-24 16:09:49.211    Couldn't find memory block!
+2023-03-24 16:10:06.595    Created a memory block of 100 bytes size
+2023-03-24 16:10:06.598    allocated 4 bytes for int
+2023-03-24 16:10:06.599    allocated 4 bytes for int
+2023-03-24 16:10:06.599    allocated 4 bytes for int
+2023-03-24 16:10:06.600    removed block of 4 size
+2023-03-24 16:10:06.600    Couldn't find memory block!
+2023-03-24 16:10:06.602    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:10:06.603    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:10:06.603    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:10:06.604    removed block of 8 size
+2023-03-24 16:10:06.604    Couldn't find memory block!
+2023-03-24 16:10:10.808    Created a memory block of 100 bytes size
+2023-03-24 16:10:10.810    allocated 4 bytes for int
+2023-03-24 16:10:10.810    allocated 4 bytes for int
+2023-03-24 16:10:10.811    allocated 4 bytes for int
+2023-03-24 16:10:10.811    removed block of 4 size
+2023-03-24 16:10:10.812    Couldn't find memory block!
+2023-03-24 16:10:10.813    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:10:10.814    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:10:10.814    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:10:10.815    removed block of 8 size
+2023-03-24 16:10:10.815    Couldn't find memory block!
+2023-03-24 16:11:21.297    Created a memory block of 100 bytes size
+2023-03-24 16:11:21.299    allocated 4 bytes for int
+2023-03-24 16:11:21.300    allocated 4 bytes for int
+2023-03-24 16:11:21.300    allocated 4 bytes for int
+2023-03-24 16:11:21.301    removed block of 4 size
+2023-03-24 16:11:21.301    Couldn't find memory block!
+2023-03-24 16:11:21.302    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:11:21.303    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:11:21.303    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:11:21.303    removed block of 8 size
+2023-03-24 16:11:21.304    Couldn't find memory block!
+2023-03-24 16:15:34.206    Created a memory block of 100 bytes size
+2023-03-24 16:15:34.208    allocated 4 bytes for int
+2023-03-24 16:15:34.209    allocated 4 bytes for int
+2023-03-24 16:15:34.209    allocated 4 bytes for int
+2023-03-24 16:15:34.210    removed block of 4 size
+2023-03-24 16:15:34.216    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:15:34.216    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:15:34.217    allocated 8 bytes for char const * __ptr64
+2023-03-24 16:15:34.217    removed block of 8 size
+block #0 000001E31E14ED50 with size 4
+block #1 000001E31E14ED54 with size 4
+block #4 000001E31E14ED64 with size 8
+block #5 000001E31E14ED6C with size 8
+2023-03-24 16:15:34.226    allocated 8 bytes for double
+block #0 000001E31E14ED50 with size 4
+block #1 000001E31E14ED54 with size 4
+block #4 000001E31E14ED64 with size 8
+block #5 000001E31E14ED6C with size 8
+block #6 000001E31E14ED74 with size 8
+2023-03-24 16:15:34.229    allocated 8 bytes for double
+2023-03-24 16:15:34.229    allocated 8 bytes for double
+2023-03-24 16:15:34.234    removed block of 8 size
+2023-03-24 16:15:34.249    removed block of 8 size
+2023-03-24 16:15:34.251    removed block of 8 size
+block #0 000001E31E14ED50 with size 4
+block #1 000001E31E14ED54 with size 4
+block #4 000001E31E14ED64 with size 8
+block #5 000001E31E14ED6C with size 8
+2023-03-24 16:15:34.253    Removed a memory block of 100 bytes size
+
+

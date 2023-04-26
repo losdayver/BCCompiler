@@ -10,3 +10,39 @@ Stack info:
 Element #1: 42
 Element #2: 23
 
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+
+Stack info:
+Element #1: 42
+Element #2: 23
+

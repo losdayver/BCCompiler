@@ -13,3 +13,34 @@ Element #1: 1.25
 
 Dequeue info:
 
+Dequeue info:
+Element #1: 1.25
+
+Dequeue info:
+
+Dequeue info:
+Element #1: 1.25
+
+Dequeue info:
+
+Dequeue info:
+Element #1: 3.23
+Element #2: 1.25
+Element #3: 4.32
+
+Dequeue info:
+
+Dequeue info:
+Element #1: 3.23
+Element #2: 1.25
+Element #3: 4.32
+
+Dequeue info:
+
+Dequeue info:
+Element #1: 3.23
+Element #2: 1.25
+Element #3: 4.32
+
+Dequeue info:
+

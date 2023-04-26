@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include "structures.h"
 #include "memory_manager.h"
+#include "hash_table.h"
 
 using namespace std;
 
@@ -27,7 +28,7 @@ void Demo1() {
 
 }
 
-// Пока работы структур данных
+// Показ работы структур данных
 void Demo2() {
 
     MemoryManager mm(35);
@@ -40,12 +41,12 @@ void Demo2() {
 
     Stack.pop(mm);
 
-    Stack.info();
+    Stack.info(mm);
 
 
     queue<const char*> Queue;
 
-    Queue.push(mm, "lalalaa");
+    Queue.push(mm, "avaava");
     Queue.push(mm, "pplplpl");
 
     mm.Info();
@@ -54,7 +55,7 @@ void Demo2() {
 
     Queue.pop(mm);
 
-    Queue.info();
+    Queue.info(mm);
 
 
     dequeue<double> Dequeue;
@@ -67,24 +68,36 @@ void Demo2() {
     Dequeue.push_front(mm, 3.23);
     Dequeue.push_back(mm, 4.32);
 
-    Dequeue.info();
+    Dequeue.info(mm);
 
     Dequeue.pop_front(mm);
     Dequeue.pop_back(mm);
     Dequeue.pop_back(mm);
     Dequeue.pop_front(mm);
 
-    Dequeue.info();
+    Dequeue.info(mm);
 
 
     mm.Info();
-   
+
 }
 
+// Показ работы хеш таблицы
+void Demo3() {
+    htable<string> table(37);
+    table.insert("food1", "ананас");
+    table.insert("food2", "петрушка");
+    table.insert("food3", "банан");
+    table.insert("food4", "персик");
+
+    table.insert("foo4d", "яблоко");
+
+    table.info();
+}
 
 int main() {
-      
-    Demo2();
+
+    Demo3();
 
     return 0;
 }

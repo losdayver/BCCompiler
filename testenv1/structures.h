@@ -7,157 +7,143 @@ using namespace std;
 
 template<typename T>
 class stack {
-	list<T> elements;
-	list<int> indexes;
-	Logger logger;
+    list<int> indexes;
+    Logger logger;
 
 public:
-	stack(): logger(true, 1, "stackLog.txt") {
-		elements = {};
-		indexes = {};
-	}
+    stack() : logger(true, 1, "stackLog.txt") {
+        indexes = {};
+    }
 
-	void push(MemoryManager& mm, T element) {
-		int index = mm.Allocate<T>(element);
-		if (index >= 0) {
-			elements.push_front(element);
-			indexes.push_front(index);
-		}
-	}
+    void push(MemoryManager& mm, T element) {
+        int index = mm.Allocate<T>(element);
+        if (index >= 0) {
+            indexes.push_front(index);
+        }
+    }
 
-	void pop(MemoryManager& mm) {
-		if (elements.size() == 0) {
-			return;
-		}
-		bool isRemoved = mm.Remove(indexes.front());
-		if (isRemoved) {
-			elements.pop_front();
-			indexes.pop_front();
-		}	
-	}
+    void pop(MemoryManager& mm) {
+        if (indexes.size() == 0) {
+            return;
+        }
+        bool isRemoved = mm.Remove(indexes.front());
+        if (isRemoved) {
+            indexes.pop_front();
+        }
+    }
 
-	void info() {
-		string message = "";
-		message += "Stack info:\n";
-		int index = 1;
-		for (auto element : elements) {
-			ostringstream oss;
-			oss << element;
-			message += "Element #" + to_string(index) + ": " + oss.str() + "\n";
-			index++;
-		}
-		message += "\n";
-		logger.Log(message);
-	}
+    void info(MemoryManager& mm) {
+        string message = "";
+        message += "Stack info:\n";
+        int i = 1;
+        for (auto index : indexes) {
+            ostringstream oss;
+            oss << mm.Get<T>(index);
+            message += "Element #" + to_string(i) + ": " + oss.str() + "\n";
+            i++;
+        }
+        message += "\n";
+        logger.Log(message);
+    }
 };
 
 template<typename T>
 class queue {
-	list<T> elements;
-	list<int> indexes;
-	Logger logger;
+    list<int> indexes;
+    Logger logger;
 
 public:
-	queue(): logger(true, 1, "queueLog.txt") {
-		elements = {};
-		indexes = {};
-	}
+    queue() : logger(true, 1, "queueLog.txt") {
+        indexes = {};
+    }
 
-	void push(MemoryManager& mm, T element) {
-		int index = mm.Allocate<T>(element);
-		if (index >= 0) {
-			elements.push_back(element);
-			indexes.push_back(index);
-		}
-	}
+    void push(MemoryManager& mm, T element) {
+        int index = mm.Allocate<T>(element);
+        if (index >= 0) {
+            indexes.push_back(index);
+        }
+    }
 
-	void pop(MemoryManager& mm) {
-		if (elements.size() == 0) {
-			return;
-		}
-		bool isRemoved = mm.Remove(indexes.front());
-		if (isRemoved) {
-			elements.pop_front();
-			indexes.pop_front();
-		}
-	}
+    void pop(MemoryManager& mm) {
+        if (indexes.size() == 0) {
+            return;
+        }
+        bool isRemoved = mm.Remove(indexes.front());
+        if (isRemoved) {
+            indexes.pop_front();
+        }
+    }
 
-	void info() {
-		string message = "";
-		message += "Queue info:\n";
-		int index = 1;
-		for (auto element : elements) {
-			ostringstream oss;
-			oss << element;
-			message += "Element #" + to_string(index) + ": " + oss.str() + "\n";
-			index++;
-		}
-		message += "\n";
-		logger.Log(message);
-	}
+    void info(MemoryManager& mm) {
+        string message = "";
+        message += "Queue info:\n";
+        int i = 1;
+        for (auto index : indexes) {
+            ostringstream oss;
+            oss << mm.Get<T>(index);
+            message += "Element #" + to_string(i) + ": " + oss.str() + "\n";
+            i++;
+        }
+        message += "\n";
+        logger.Log(message);
+    }
 };
 
 template<typename T>
 class dequeue {
-	list<T> elements;
-	list<int> indexes;
-	Logger logger;
+    list<int> indexes;
+    Logger logger;
 
 public:
-	dequeue(): logger(true, 1, "dequeueLog.txt") {
-		elements = {};
-		indexes = {};
-	}
+    dequeue() : logger(true, 1, "dequeueLog.txt") {
+        indexes = {};
+    }
 
-	void push_back(MemoryManager& mm, T element) {
-		int index = mm.Allocate<T>(element);
-		if (index >= 0) {
-			elements.push_back(element);
-			indexes.push_back(index);
-		}
-	}
+    void push_back(MemoryManager& mm, T element) {
+        int index = mm.Allocate<T>(element);
+        if (index >= 0) {
+            indexes.push_back(index);
+        }
+    }
 
-	void push_front(MemoryManager &mm, T element) {
-		int index = mm.Allocate<T>(element);
-		if (index >= 0) {
-			elements.push_front(element);
-			indexes.push_front(index);
-		}
-	}
+    void push_front(MemoryManager& mm, T element) {
+        int index = mm.Allocate<T>(element);
+        if (index >= 0) {
+            indexes.push_front(index);
+        }
+    }
 
-	void pop_back(MemoryManager& mm) {
-		if (elements.size() == 0) {
-			return;
-		}
-		bool isRemoved = mm.Remove(indexes.back());
-		if (isRemoved) {
-			elements.pop_back();
-			indexes.pop_back();
-		}
-	}
+    void pop_back(MemoryManager& mm) {
+        if (indexes.size() == 0) {
+            return;
+        }
+        bool isRemoved = mm.Remove(indexes.back());
+        if (isRemoved) {
+            indexes.pop_back();
+        }
+    }
 
-	void pop_front(MemoryManager& mm) {
-		if (elements.size() == 0) {
-			return;
-		}
-		bool isRemoved = mm.Remove(indexes.front());
-		if (isRemoved) {
-			elements.pop_front();
-			indexes.pop_front();
-		}
-	}
+    void pop_front(MemoryManager& mm) {
+        if (indexes.size() == 0) {
+            return;
+        }
+        bool isRemoved = mm.Remove(indexes.front());
+        if (isRemoved) {
+            indexes.pop_front();
+        }
+    }
 
-	void info() {
-		string message = "";
-		message += "Dequeue info:\n";
-		int index = 1;
-		for (auto element : elements) {
-			ostringstream oss;
-			oss << element;
-			message += "Element #" + to_string(index) + ": " + oss.str() + "\n";
-			index++;
-		}
-		message += "\n";
-		logger.Log(message);
-	}
+    void info(MemoryManager& mm) {
+        string message = "";
+        message += "Dequeue info:\n";
+        int i = 1;
+        for (auto index : indexes) {
+            ostringstream oss;
+            oss << mm.Get<T>(index);
+            message += "Element #" + to_string(i) + ": " + oss.str() + "\n";
+            i++;
+        }
+        message += "\n";
+        logger.Log(message);
+    }
 };
