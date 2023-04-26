@@ -7,24 +7,16 @@ using namespace std;
 
 template<typename T>
 class htable {
-    struct htable_element {
-        string key;
-        T value;
-    };
-
-    vector<vector<htable_element>> elements;
-    vector<int> indexes;
+    vector<vector<int>> keys_indexes;
+    vector<vector<int>> values_indexes;
     Logger logger;
     int size;
 
-
-
-    unsigned long hash(string key) {
-        const char* str = key.c_str();
+    unsigned long hash(const char * key) {
         unsigned long h = 86969;
-        while (*str) {
-            h = (h * 54059) ^ (str[0] * 76963);
-            str++;
+        while (*key) {
+            h = (h * 54059) ^ (key[0] * 76963);
+            key++;
         }
 
         return h % size;
@@ -35,58 +27,67 @@ public:
     htable(long table_size) : logger(true, 1, "htableLog.txt") {
         this->size = table_size;
         for (int i = 0; i < size; i++) {
-            elements.push_back(vector<htable_element> {});
-            indexes.push_back(-1);
+            keys_indexes.push_back(vector<int> {});
+            values_indexes.push_back(vector<int> {});
         }
     }
 
-    void insert(string key, T value) {
+    void insert(MemoryManager& mm, const char* key, T value) {
         unsigned long h = hash(key);
-        if (elements[h].size() == 0) {
-            elements[h].push_back({ key, value });
-        }
-        else {
-            for (size_t i = 0; i < elements[h].size(); i++) {
-                if (elements[h][i].key == key) {
-                    elements[h][i].value = value;
-                    return;
-                }
+
+        //for (int i = 0; i < keys_indexes[h].size(); i++) {
+         //   if (mm.Get<const char*>(keys_indexes[h][i]) == key) {
+         //       return;
+        //    }
+       // }
+        
+        int i1 = mm.Allocate<T>(value);
+        if (i1 >= 0) {
+            int i2 = mm.Allocate<const char*>(key);
+            if (i2 >= 0) {
+                keys_indexes[h].push_back(i2);
+                values_indexes[h].push_back(i1);
             }
-            elements[h].push_back({ key, value });
+            else {
+                mm.Remove(i1);
+            }
         }
-
     }
 
-    T get(string key) {
+    T get(MemoryManager& mm, const char* key) {
         unsigned long h = hash(key);
-        for (size_t i = 0; i < elements[h].size(); i++) {
-            if (elements[h][i].key == key) {
-                return elements[h][i].value;
+        for (size_t i = 0; i < keys_indexes[h].size(); i++) {
+            if (mm.Get<const char*>(keys_indexes[h][i]) == key) {
+                return mm.Get<T>(values_indexes[h][i]);
             }
         }
 
         return NULL;
     }
 
-    void remove(string key) {
+    void remove(MemoryManager& mm, const char* key) {
         unsigned long h = hash(key);
-        for (size_t i = 0; i < elements[h].size(); i++) {
-            if (elements[h][i].key == key) {
-                elements[h].erase(i);
+        for (int i = 0; i < keys_indexes[h].size(); i++) {
+            if (mm.Get<const char*>(keys_indexes[h][i]) == key) {
+                mm.Remove(keys_indexes[h][i]);
+                mm.Remove(values_indexes[h][i]);
+                keys_indexes[h].erase(keys_indexes[h].begin() + i);
+                values_indexes[h].erase(values_indexes[h].begin() + i);
                 break;
             }
         }
     }
 
-    void info() {
+    void info(MemoryManager& mm) {
         string message = "";
         message += "Hash table info:\n";
         for (size_t i = 0; i < size; i++) {
-            for (size_t j = 0; j < elements[i].size(); j++) {
+            for (size_t j = 0; j < keys_indexes[i].size(); j++) {
+                cout << i << " " << j << endl;
                 ostringstream oss;
-                cout << i << endl;
-                oss << elements[i][j].value;
-                message += elements[i][j].key + " : " + oss.str() + "\n";
+                oss << mm.Get<T>(values_indexes[i][j]);
+                const char* key = mm.Get<const char*>(keys_indexes[i][j]);
+                message += string(key) + " : " + oss.str() + "\n";
             }
         }
         message += "\n";

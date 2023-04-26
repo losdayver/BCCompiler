@@ -84,19 +84,28 @@ void Demo2() {
 
 // Показ работы хеш таблицы
 void Demo3() {
-    htable<string> table(37);
-    table.insert("food1", "ананас");
-    table.insert("food2", "петрушка");
-    table.insert("food3", "банан");
-    table.insert("food4", "персик");
+    MemoryManager mm(200);
+    htable<const char *> table(37);
+    table.insert(mm, "food1", "ананас");
+    table.insert(mm, "food2", "петрушка");
+    table.insert(mm, "food3", "банан");
+    table.insert(mm, "food4", "персик");
 
-    table.insert("foo4d", "яблоко");
+    table.insert(mm, "food3", "яблоко");
 
-    table.info();
+    table.info(mm);
+
+    table.remove(mm, "food1");
+
+    //table.info(mm);
+
+    cout << table.get(mm, "food2");
+
+    
 }
 
 int main() {
-
+    system("chcp 1251>nul");
     Demo3();
 
     return 0;

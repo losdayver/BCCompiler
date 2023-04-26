@@ -1,14 +1,7 @@
 Hash table info:
 food4 : персик
-foo4d : €блоко
 food1 : ананас
 food3 : банан
-food2 : петрушка
-
-Hash table info:
-food4 : персик
-foo4d : €блоко
-food1 : ананас
-food3 : банан
+food3 : €блоко
 food2 : петрушка
 
